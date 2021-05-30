@@ -35,11 +35,15 @@ export class List {
     reverse() {
         this._data.reverse()
     }
-
     //test8
-    length(value) {
-       this._data.length(value)
+    removeNum(startNum) {
+        this._data.slice(startNum)
     }
+    //test9
+    find(value) {
+        this._data.includes(value)
+    }
+
 }
 //var obj=new List()
 //obj.add(50)
