@@ -20,71 +20,60 @@ describe("Array", function () {
         assert.equal(list.count(), 2)
     })
 
-    /*it('test3', function () {
-        list.add(5)
-        list.add(5)
-        list.add(5)
-        assert.equal(list.adds(), list.length = 3)
-    })
-    */
+        / it('test3', function () {
+            list.addMany(5, 5, 5) //no return
+
+            assert.equal(list.count(), 3)
+        })
+
 
     it('test4', function () {
         list.add(5)
-        list.add(5)
-        assert.equal(list.clear(), list.length = 0)
+        list.clear() //no return
+        assert.equal(list.count(), 0)
     })
     it('test5', function () {
         list.add(1)
         list.add(2)
-        list.add(3)
-        list.add(4)
         assert.equal(list.get(0), 1)
     })
 
-    /* it('test6', function () {
+    it('test6', function () {
         list.add(1)
         list.add(2)
-        list.add(3)
-        list.add(4)
-        assert.ok(list.includes(2), 'true')
+        assert.ok(list.includes(2))
 
     })
+
     it('test7', function () {
-        list.add(1)
-        list.add(2)
-        list.add(3)
-        list.add(4)
-        assert.equal(list.reverse(), [4,3,2,1])
 
-    })*/
-    it('test8', function (value) {
-        list.add(1)
+        list.add(1)//arrange
         list.add(2)
+        list.reverse()//act //no return
+        assert.equal(list.get(0), 2)//assert
+    })
+    it('test8', function () {
+
+        list.length(5,5,5,5)
         
-        assert.equal(list.remove(1), 2)
+        assert.equal(list.count(), 4)//assert
     })
+    
 
-    it('test9', function (value) {
-        list.add(1)
-        list.add(2)
-        list.add(3)
-        list.add(4)
-        assert.equal(list.remove(1), list.length = 3)
-    })
+
+
+
+
+
+    /*var list = new List()
+    list.add(7)
+    const result = list.get(0)
+    if (result == 7) {
+        console.log("work");
+        console.log(result);
+    } else {
+        console.log("error");
+         list.add(5)
+        const result=list.get(0)
+    }*/
 })
-
-
-
-
-
-/*var list = new List()
-list.add(7)
-const result = list.get(0)
-if (result == 7) {
-    console.log("work");
-    console.log(result);
-} else {
-    console.log("error");
-     list.add(5)
-    const result=list.get(0)
-}*/

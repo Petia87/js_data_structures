@@ -12,35 +12,33 @@ export class List {
         return this._data.length
     }
 
-    //test3
-   adds(...value) {
+    test3
+    addMany(...value) {
         this._data.push(...value)
 
     }
-    
-   //test4
+
+    //test4
     clear() {
-        return this._data = []
+        this._data = []
     }
     //test5
     get(index) {
         return this._data[index]
     }
-    
+
     //test6
     includes(value) {
         return this._data.includes(value)
     }
     //test7
     reverse() {
-        return this._data.reverse
+        this._data.reverse()
     }
-    //test 8 i9
-    remove(value) {
-        return this._data.remove(value)
-    }
-    find(value) {
-        return this._data.find(value)
+
+    //test8
+    length(value) {
+       this._data.length(value)
     }
 }
 //var obj=new List()
