@@ -1,5 +1,6 @@
 import { List } from "../src/List.js "
 import { assert } from "chai"
+import { performance } from "perf_hooks";
 
 describe("Array", function () {
     let list;
@@ -66,14 +67,31 @@ describe("Array", function () {
         assert.ok(list.includes(3))//assert
     })
     it('test9', function () {
-        list.add(1)//arrange
-        list.add(2)
-        list.add(3)
-        list.add(4)
-        list.find(4)//act 
-        assert.ok(list.includes(4))//assert
+       
+            list.add(1)//arrange
+            list.add(2)
+            list.add(3)
+            list.add(4)
+            const t1 = performance.now()
+            list.find(4)//act 
+            const t2 = performance.now()
+            const time = t2 - t1
+            assert.isTrue(time < 15)
+            assert.ok(list.includes(4))//assert
+
     })
 
-
+    it("time", function () {
+      
+        list.addMany(1,2,3,4,5,6)
+        const t1 = performance.now()
+        list.find(4)//act 
+        const t2 = performance.now()
+        const time = t2 - t1
+        assert.isTrue(time < 15)
+    })
+    
 
 })
+
+
