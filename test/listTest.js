@@ -84,35 +84,73 @@ describe("Array", function () {
         assert.isTrue(time < 15)
         console.log(time);
     })
-        
-         it('test9', function () {
 
-            list.add({ number: 1 })//arrange
-            list.add({ number: 2 })
-            list.add({ number: 3 })
+    /*it('test9 object', function () {
 
-            const t1 = performance.now()
-            const result = list.find(2)
-            const t2 = performance.now()
-            const time = t2 - t1
+        list.add({ number: 1 })//arrange
+        list.add({ number: 2 })
+        list.add({ number: 3 })
+        list.add({ number: 4 })
+        list.add({ number: 5 })
+        list.add({ number: 6 })
+        list.add({ number: 7 })
+        list.add({ number: 8 })
 
-            assert.isTrue(time < 15)
-            console.log(time);
-            assert.equal(result.number, 2)//assert
+        const t1 = performance.now()
+        const result = list.find(2)
+        const t2 = performance.now()
+        const time = t2 - t1
 
+        assert.isTrue(time < 20)
+        console.log(time);
+        assert.equal(result.number, 2)//assert
 
-        })
-  
+    })*/
+    it('test9', function () {
 
+        list.addMany(1, 3, 2, 10, 20, 0)
 
-    it("test 10", function () {
+        const t1 = performance.now()
+        const result = list.find(2)
+        const t2 = performance.now()
+        const time = t2 - t1
 
-        list.addMany(1, 3, 2, 10, 20,0)
-        list.sort()
-        assert.equal(list.get(4), 10)
-
+        assert.isTrue(time < 20)
+        console.log(time);
+        assert.equal(result, 2)//assert
 
     })
+    it('test9a', function () {
+     list.addMany(1, 3, 2, 10, 20, 0)
+        list.sort()
+        const t1 = performance.now()
+        list.findBinary(1)
+       
+        const t2 = performance.now()
+        const time = t2 - t1
+
+        assert.isTrue(time < 20)
+        console.log(time);
+       assert.equal( list.findBinary(2), 2)
+        //assert.ok(list.findBinary(5))
+       //assert.equal(list.get(0), 0)
+
+       
+
+    })
+
+
+
+
+   it("test 10", function () {
+        /* list.addMany(1, 3, 2, 10, 20, 0)
+         list.sort()
+         assert.equal(list.get(4), 10)*/
+       list.addMany({ number: 1 }, { number: 2 }, { number: 3 })
+        list.sort("number")
+        assert.equal(list.get(0).number, 1)
+    })
+   
 
 })
     //value>-1 && value<list.lenght && time<15

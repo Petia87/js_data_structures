@@ -42,34 +42,116 @@ export class List {
     //test9
     find(searchedNumber) {
         for (const element of this._data) {
-            if (element.number === searchedNumber) {
-                return element
+            if (typeof element == "object") {
+                if (element.number === searchedNumber) {
+                    return element
+                }
+            } else {
+                if (element === searchedNumber) {
+                    return element
+                }
             }
         }
+    }
+    //test 9a
+    findBinary(searchedNumber) {
+        this.sort()
+        let sortedArray = this._data
+        let start = 0;
+        let end = sortedArray.length - 1;
 
+        while (start <= end) {
+            let middle = Math.floor((start + end) / 2);
+
+            if (sortedArray[middle] === searchedNumber) {
+                // found the key
+                return middle;
+            } else if (sortedArray[middle] < searchedNumber) {
+                // continue searching to the right
+                start = middle + 1;
+            } else {
+                // search searching to the left
+                end = middle - 1;
+            }
+        }
+        // key wasn't found
+        return -1;
     }
 
+
+
+
     //test 10
-    sort() {
+
+    sort(propertyName) {
 
         for (var i = 0; i < this._data.length; i++) {
             for (var j = 0; j < this._data.length; j++) { // this was missing
                 const firstElement = this._data[j];
                 const secondElement = this._data[j + 1];
-                if (!secondElement===-1) {
+                if (secondElement === undefined) {
                     break
                 }
-                if (firstElement > secondElement) {
+                if (typeof firstElement == "object") {
+                    if (firstElement[propertyName] > secondElement[propertyName]) {
+                        // swap
+                        this._data[j] = secondElement
+                        this._data[j + 1] = firstElement
+                    }
+                } else {
+                    if (firstElement > secondElement) {
+                        // swap
+                        this._data[j] = secondElement
+                        this._data[j + 1] = firstElement
+                    }
+                }
+            }
+        }
+    }
+
+
+    /*sort(propertyName) {
+ 
+        for (var i = 0; i < this._data.length; i++) {
+            for (var j = 0; j < this._data.length; j++) { // this was missing
+                const firstElement = this._data[j];
+                const secondElement = this._data[j + 1];
+                if (secondElement === undefined) {
+                    break
+                }
+ 
+ 
+                if (firstElement[propertyName] > secondElement[propertyName]) {
                     // swap
                     this._data[j] = secondElement
                     this._data[j + 1] = firstElement
                 }
             }
         }
-    }
-
-
+    }*/
 }
 //var obj=new List()
 //obj.add(50)
 //obj.get(5)
+/*} else if (this.sort(propertyName)) {
+                for (var i = 0; i < this._data.length; i++) {
+                    for (var j = 0; j < this._data.length; j++) { // this was missing
+                        const firstElement = this._data[j];
+                        const secondElement = this._data[j + 1];
+                        if (!secondElement === undefined) {
+                            break
+                        }
+                        if (firstElement[propertyName] > secondElement[propertyName]) {
+                            // swap
+                            this._data[j] = secondElement
+                            this._data[j + 1] = firstElement
+                        }
+                    }
+                }
+            }*/
+/* if (firstElement > secondElement) {
+        // swap
+        this._data[j] = secondElement
+        this._data[j + 1] = firstElement
+    }
+} else if (this.sort(propertyName)) {*/
