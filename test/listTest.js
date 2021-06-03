@@ -134,6 +134,8 @@ describe("Array", function () {
        assert.equal( list.findBinary(2), 2)
         //assert.ok(list.findBinary(5))
        //assert.equal(list.get(0), 0)
+        //assert.ok(list.findBinary(5))
+       //assert.equal(list.get(0), 0)
 
        
 
