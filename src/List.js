@@ -155,3 +155,4 @@ export class List {
         this._data[j + 1] = firstElement
     }
 } else if (this.sort(propertyName)) {*/
+    
