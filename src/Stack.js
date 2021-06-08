@@ -37,10 +37,6 @@ export class Stack {
     }
     //count
     toString() {
-        let str = ""
-        for (let i = 0; i < this.count; i++) {
-            str += this.count[i] + "";
-
-        }
+       return this._dataArray.toString()
     }
 }

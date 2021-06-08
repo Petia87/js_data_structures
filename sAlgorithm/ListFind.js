@@ -1,4 +1,4 @@
-/*import { List } from "../src/List.js"
+import { List } from "../src/List.js"
 
 export function ListFind(){
     const input=[1,2,3,4,5,6]
@@ -12,4 +12,4 @@ export function ListFind(){
     }
    console.log("don't work");
 }
-ListFind()*/
+ListFind()

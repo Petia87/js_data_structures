@@ -1,4 +1,4 @@
-import { List } from "../src/List.js "
+/*import { List } from "../src/List.js "
 import { assert } from "chai"
 import { performance } from "perf_hooks";
 
@@ -106,7 +106,7 @@ describe("Array", function () {
         assert.equal(result.number, 2)//assert
 
     })*/
-    it('test9', function () {
+    /*it('test9', function () {
 
         list.addMany(1, 3, 2, 10, 20, 0)
 
@@ -148,7 +148,7 @@ describe("Array", function () {
         /* list.addMany(1, 3, 2, 10, 20, 0)
          list.sort()
          assert.equal(list.get(4), 10)*/
-       list.addMany({ number: 1 }, { number: 2 }, { number: 3 })
+      /* list.addMany({ number: 1 }, { number: 2 }, { number: 3 })
         list.sort("number")
         assert.equal(list.get(0).number, 1)
     })
@@ -159,3 +159,4 @@ describe("Array", function () {
 
 
 
+*/
