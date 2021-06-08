@@ -24,7 +24,4 @@ describe("Brackets", function () {
 
     })
 
-
-  
-
 })

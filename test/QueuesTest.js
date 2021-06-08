@@ -1,4 +1,4 @@
-import { Queues} from "../src/Queues.js"
+import { Queues } from "../src/Queues.js"
 import { assert } from "chai"
 
 
@@ -7,7 +7,7 @@ describe("Queues", function () {
     beforeEach(() => {
         queues = new Queues()
     })
-console.log(queues);
+
     it('enqueue', function () {
         queues.enqueue(5)
         assert.isFalse(queues.isEmpty())
@@ -20,15 +20,14 @@ console.log(queues);
         queues.dequeue()
         queues.dequeue()
         assert.isTrue(queues.isEmpty())
-     
+
 
     })
 
     it('isEmpty', function () {
-        
-    assert.isTrue(queues.isEmpty())
+        assert.isTrue(queues.isEmpty())
 
     })
-    
+
 
 })

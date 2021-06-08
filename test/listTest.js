@@ -43,14 +43,14 @@ describe("Array", function () {
         list.add(2)
         assert.equal(list.get(0), 1)
     })
-    //-//-
+ 
 
     it('test6', function () {
         list.add(1)
         list.add(2)
         assert.ok(list.includes(2))
     })
-    //-//-
+  
 
     it('test7', function () {
 
@@ -59,8 +59,7 @@ describe("Array", function () {
         list.reverse()//act //no return
         assert.equal(list.get(0), 2)//assert
     })
-    //-//-
-
+  
     it('test8', function () {
         list.add(1)//arrange
         list.add(2)
