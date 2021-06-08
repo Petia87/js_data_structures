@@ -1,6 +1,6 @@
 import { List } from "../src/List.js"
 
-export function ListFind(){
+function ListFind(){
     const input=[1,2,3,4,5,6]
     const list=new List()
     list.addMany(input)

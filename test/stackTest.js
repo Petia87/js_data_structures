@@ -1,4 +1,4 @@
-/*import { Stack } from "../src/Stack.js"
+import { Stack } from "../src/Stack.js"
 import { assert } from "chai"
 
 
@@ -50,4 +50,4 @@ describe("Stack", function () {
 
     })
 
-})*/
+})

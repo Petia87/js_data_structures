@@ -9,7 +9,6 @@ describe("Brackets", function () {
     })
      it('test2', function () {
          let missingBrackets=brackets(`1234(123`)
-         //console.log(missingBrackets);
          assert.equal(missingBrackets, false)
  
      })
@@ -26,7 +25,6 @@ describe("Brackets", function () {
     })
 
 
-   // test3red 64
-   //test 4 red 72
+  
 
 })
