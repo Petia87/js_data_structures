@@ -10,13 +10,11 @@ describe("Stack", function () {
 
     it('push', function () {
         stack.push(5)
-        console.log(stack);
         assert.equal(stack.peek(0), 5)
 
     })
     it('pop', function () {
         stack.pop()
-        console.log(stack);
         assert.equal(stack.length(0), 0)
 
     })
@@ -24,7 +22,6 @@ describe("Stack", function () {
     it('lenght', function () {
         stack.push(1)
         stack.push(2)
-        console.log(stack);
         assert.equal(stack.length(2), 2);
 
     })
@@ -38,7 +35,6 @@ describe("Stack", function () {
     it('isEmpty', function () {
         stack.push(1)
         stack.pop()     
-        console.log(stack);
         assert.isTrue(stack.isEmpty())
 
     })
