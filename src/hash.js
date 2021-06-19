@@ -1,86 +1,85 @@
-export class HashTable {
-    constructor(size = 10) {
-        this.array = new Array(size);
-        this.size = size;
+export class Hash{
+    constructor() {
+        this.size = 7
+        this.array = new Array(this.size).fill(null);
+        this.length = 0;
+        console.log(this.array);
     }
-
-    //1.Create hash 
-
-    hash(key) {
-        return key.toString().length % this.size;
-    }
-
-
-    //2.  setItemс 
-    setItem(key, value) {
-        let index = this.hash(key);
-
-        if (!this.array[index]) {
-            this.array[index] = [];
-        }
-
-        this.array[index].push([key, value])
-        return index
-    }
-
-    //3.  getItem 
-    getItem(key) {
-        let index = this.hash(key);
-
-        if (!this.array[index]) {
-            return null
-        }
-
-        for (let table of this.array[index]) {
-            // key
-            if (table[0] === key) {
-                // value
-                return table[1]
-            }
-        }
-    }
-
-    4// create _hash
-    _hash(key) {
+    
+      _hash(key, size) {
         let hash = 0;
         for (let i = 0; i < key.length; i++) {
             hash += key.charCodeAt(i);
         }
-        return hash % this.table.length;?????
+        return hash % size
     }
 
 
-   5//set colizia
     set(key, value) {
         const index = this._hash(key);
-        if (this.table[index]) {
-            for (let i = 0; i < this.table[index].length; i++) {
-                // Find the key/value pair in the chain
-                if (this.table[index][i][0] === key) {
-                    this.table[index][i][1] = value;
-                    return;
+        if (!this.array[index]) {//if arau is empry
+            this.array[index] = [[key, value]]
+            this.length++; // increase length size
+        } else
+            let isKeyUpdated = false;
+        // get all keys on a hashIndex and loop over
+        const arrKeys = this.array[index];
+        for (let i = 0; i < arrKeys.length; i++) {
+            // if key found, replace its value
+            if (arrKeys[i][0] === key) {
+                arrKeys[i][1] = value;
+                isKeyUpdated = true;
+            }
+        }
+        // if same Key does not exist, push new [Key value]
+        if (!isKeyUpdated) {
+            this.values[hashIndex].push([key, value]);
+            this.length++; // increase length size
+        }
+    }
+
+
+ 
+    get(key) {
+        const index = this._hash(key);
+        const slot = this.array[index]
+        if (!slot) {       //if is empty
+            return false
+        } else {
+            for (let i = 0; i < slot.length; i++) {
+                // compare key
+                if (slot[index][i][0] === key) {
+                    //return value
+                    return this.array[index][i][1];
                 }
             }
-            // not found, push a new key/value pair
-            this.table[index].push([key, value]);
+        }
+    }
+    remove(key) {
+        let index = this._hash(key);
+        let slot = this.array[index]
+        if (!slot) {
+            return false;
         } else {
-            this.table[index] = [];
-            this.table[index].push([key, value]);
+            for (let i = 0; i < slot.length; i++) {
+                // Find the element in the chain
+                if (slot[i][0] === key) {
+                    slot.splice(i, 1);
+                    return true
+                }
+            }
         }
-        this.size++;
     }
-    6// get colizia
-    get(key) {
-      const target = this._hash(key);
-      if (this.table[target]) {
-        for (let i = 0; i < this.table.length; i++) {
-          if (this.table[target][i][0] === key) {
-            return this.table[target][i][1];
-          }
-        }
-      }
-      return undefined;
-    }
-
 }
 
+
+let ht = new HashTable()
+ht.set(pr, 94);
+ht.set(pt, 1);
+ht.set(tf, 6);
+ht.set(gf, 21);
+ht.set(g5, 34);
+
+console.log(ht.get(pr));
+
+console.log(ht.get(tf));
