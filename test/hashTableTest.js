@@ -21,7 +21,7 @@ describe("HashTable", function () {
         ht.set("ani", 1);
         ht.set("ina", 1);
         assert.equal(ht.get("ani"), 1)
-        assert.equal(ht.get("ina", 1)
+        assert.equal(ht.get("ina"), 1)
 
     })
 
